@@ -1,39 +1,61 @@
-import { Link as ScrollLink } from 'react-scroll';
+'use client';
+import { useEffect, useState } from 'react';
 import Logo from './Logo';
 import NavMobile from './NavMobile';
 import { links } from '@/lib/constant';
 
 const Header = () => {
+  const [headerActive, setHeaderActive] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHeaderActive(window.scrollY > 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  });
+
+  const activeStyle = `w-full transition-transform duration-500 fixed top-0 left-0 z-50 ${
+    headerActive ? 'translate-y-0' : '-translate-y-full'
+  }`;
+
+  const staticStyle = 'relative z-10';
+
   return (
-    <header className="bg-white p-4">
-      <div className="container mx-auto">
-        <div className="flex items-center justify-between">
-          <Logo />
-          <nav className="hidden xl:flex items-center gap-12">
-            <ul className="flex">
-              {links.map((link, index) => {
-                return (
-                  <li
-                    key={index}
-                    className="text-primary text-sm uppercase font-primary font-medium tracking-[1.2px] after:content-['/'] after:mx-4 last:after:content-none after:text-primary"
-                  >
-                    <a
-                      href={`#${link.path}`}
-                      className="cursor-pointer text-base text-gray-700 hover:text-accent"
+    <div className={headerActive ? activeStyle : staticStyle}>
+      <header className="bg-white p-4">
+        <div className="container mx-auto">
+          <div className="flex items-center justify-between">
+            <Logo />
+            <nav className="hidden xl:flex items-center gap-12">
+              <ul className="flex">
+                {links.map((link, index) => {
+                  return (
+                    <li
+                      key={index}
+                      className="text-primary text-sm uppercase font-primary font-medium tracking-[1.2px] after:content-['/'] after:mx-4 last:after:content-none after:text-primary"
                     >
-                      {link.name}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-          <div className="xl:hidden">
-            <NavMobile />
+                      <a
+                        href={`/#${link.path}`}
+                        className="cursor-pointer text-base text-gray-700 hover:text-accent"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+            <div className="xl:hidden">
+              <NavMobile />
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
   );
 };
 

@@ -20,3 +20,9 @@ export const links = [
     path: 'contact',
   },
 ];
+
+export const SERVICES = {
+  geospatial: 'Geospatial Science & Engineering',
+  data: 'Data & Decision Support',
+  development: 'Full Stack Software Development',
+} as const;

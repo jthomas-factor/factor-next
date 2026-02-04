@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import Link from 'next/link';
+'use client'
 import { RiMapPin2Fill, RiPhoneFill } from 'react-icons/ri';
 import Socials from './Socials';
 import { motion } from 'framer-motion';

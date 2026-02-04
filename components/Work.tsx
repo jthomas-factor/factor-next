@@ -1,9 +1,11 @@
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
 import PreTitle from './PreTitle';
 import { RiArrowRightUpLine, RiCheckboxCircleFill } from 'react-icons/ri';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/lib/variants';
+import Button from './Button';
 
 const workData = [
   {
@@ -95,6 +97,7 @@ const Work = () => {
             </div>
           );
         })}
+        <Button text="View all projects" link="/projects"/>
       </motion.div>
     </div>
   );

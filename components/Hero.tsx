@@ -1,7 +1,7 @@
+'use client'
 import Button from './Button';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/lib/variants';
-import Industries from './Industries';
 
 const Hero = () => {
   return (
