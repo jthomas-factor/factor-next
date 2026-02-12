@@ -10,7 +10,7 @@ const ListPageTemplate = ({
   posts: Post[];
 }) => {
   return (
-    <div className="container mx-auto pt-8 mb-16">
+    <div className="container mx-auto pt-8 xl:pt-24">
       <PreTitle text={title} />
       <div className="border-b border-primary/10"></div>
 

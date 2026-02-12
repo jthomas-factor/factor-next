@@ -9,7 +9,6 @@ import {
   SheetTrigger,
 } from './ui/sheet';
 import { RiMenu3Fill } from 'react-icons/ri';
-// import { Link as ScrollLink } from 'react-scroll';
 import Logo from './Logo';
 import { links } from '@/lib/constant';
 import Socials from './Socials';
@@ -43,17 +42,6 @@ const NavMobile = () => {
                   key={index}
                   className="text-primary uppercase font-primary font-medium tracking-[1.2px]"
                 >
-                  {/* <ScrollLink
-                    to={link.path}
-                    smooth
-                    spy
-                    duration={500}
-                    className="cursor-pointer"
-                    activeClass="text-accent"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </ScrollLink> */}
                   <Link href={link.path}>{link.name}</Link>
                 </li>
               );

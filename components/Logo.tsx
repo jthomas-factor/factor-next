@@ -9,7 +9,8 @@ const Logo = () => {
         width={160}
         height={48}
         alt="Factor logo"
-        style={{ height: 'auto' }}
+        style={{ width: '100%', height: 'auto' }}
+        priority
       />
     </Link>
   );

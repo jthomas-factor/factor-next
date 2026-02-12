@@ -16,6 +16,12 @@ export type Post = {
   summary: string;
   body: PortableTextBlock[];
   tools?: Tool[];
+  seo: {
+    metaTitle: string;
+    metaDescription: string;
+    imageUrl: string;
+    noIndex: boolean;
+  };
 };
 
 export type Leadership = {

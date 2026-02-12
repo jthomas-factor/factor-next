@@ -9,9 +9,12 @@ const Hero = () => {
     <section className="h-[50vh] relative bg-primary/90">
       {/* Background Image */}
       <Image
-        src="/hero/hero.png"
+        src="/hero/hero.avif"
         alt="FACTOR Inc. data-driven industry and infrastructure solutions"
         fill
+        priority
+        fetchPriority="high"
+        sizes="100vw"
         className="object-cover object-center 2xl:object-bottom absolute inset-0 z-0 scale-x-[-1]"
       />
 

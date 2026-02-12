@@ -8,6 +8,7 @@ import { Metadata } from 'next';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://factorinc.com'),
   title: 'FACTOR, Inc. | Geospatial, Data & Risk Modeling Solutions',
 
   description:

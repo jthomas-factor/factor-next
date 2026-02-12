@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <main className="container mx-auto mt-8 xl:mt-32">
+    <main className="container mx-auto pt-8 xl:pt-24">
       <Script
         id="contracts-schema"
         type="application/ld+json"

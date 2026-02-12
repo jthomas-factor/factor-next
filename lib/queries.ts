@@ -10,7 +10,13 @@ export const projectsQuery = `
     publishedAt,
     "imageUrl": mainImage.asset->url,
     "industries": industries[]->title,
-    "services": services[]->title
+    "services": services[]->title,
+      seo {
+    metaTitle,
+    metaDescription,
+    "imageUrl": ogImage.asset->url,
+    noIndex
+  }
   }
 `;
 
@@ -25,7 +31,13 @@ export const projectBySlugQuery = `
     "imageUrl": mainImage.asset->url,
     "industries": industries[]->title,
     "services": services[]->title,
-    body
+    body,
+      seo {
+    metaTitle,
+    metaDescription,
+    "imageUrl": ogImage.asset->url,
+    noIndex
+  }
   }
 `;
 
@@ -52,7 +64,13 @@ export async function getProjectsByTitle(name: string) {
       },
       summary,
       body,
-      tools
+      tools,
+        seo {
+    metaTitle,
+    metaDescription,
+    "imageUrl": ogImage.asset->url,
+    noIndex
+  }
     }
     `,
     { name },
@@ -67,7 +85,13 @@ export const servicesQuery = `
     subtitle,
     publishedAt,
     "imageUrl": mainImage.asset->url,
-    "industries": industries[]->title
+    "industries": industries[]->title,
+      seo {
+    metaTitle,
+    metaDescription,
+    "imageUrl": ogImage.asset->url,
+    noIndex
+  }
   }
 `;
 
@@ -81,13 +105,24 @@ export const serviceBySlugQuery = `
     "imageUrl": mainImage.asset->url,
     "industries": industries[]->title,
     "services": services[]->title,
-    body
+    body,
+      seo {
+    metaTitle,
+    metaDescription,
+    "imageUrl": ogImage.asset->url,
+    noIndex
+  }
   }
 `;
 
 export async function getServicesByTitles(titles: string[]) {
   return client.fetch<Post[]>(
-    ` *[ _type == "post" && section == "services" && title in $services ] | order(publishedAt desc) { _id, title, "slug": slug.current, subtitle, "imageUrl": mainImage.asset->url, } `,
+    ` *[ _type == "post" && section == "services" && title in $services ] | order(publishedAt desc) { _id, title, "slug": slug.current, subtitle, "imageUrl": mainImage.asset->url,   seo {
+    metaTitle,
+    metaDescription,
+    "imageUrl": ogImage.asset->url,
+    noIndex
+  } } `,
     { services: titles },
   );
 }
@@ -100,7 +135,13 @@ export const industriesQuery = `
     subtitle,
     publishedAt,
     "imageUrl": mainImage.asset->url,
-    "services": services[]->title
+    "services": services[]->title,
+      seo {
+    metaTitle,
+    metaDescription,
+    "imageUrl": ogImage.asset->url,
+    noIndex
+  }
   }
 `;
 
@@ -114,26 +155,50 @@ export const industryBySlugQuery = `
     "imageUrl": mainImage.asset->url,
     "industries": industries[]->title,
     "services": services[]->title,
-    body
+    body,
+      seo {
+    metaTitle,
+    metaDescription,
+    "imageUrl": ogImage.asset->url,
+    noIndex
+  }
   }
 `;
 
 export async function getIndustriesByTitles(titles: string[]) {
   return client.fetch<Post[]>(
-    ` *[ _type == "post" && section == "industries" && title in $industries ] | order(publishedAt desc) { _id, title, "slug": slug.current, subtitle, "imageUrl": mainImage.asset->url, } `,
+    ` *[ _type == "post" && section == "industries" && title in $industries ] | order(publishedAt desc) { _id, title, "slug": slug.current, subtitle, "imageUrl": mainImage.asset->url,   seo {
+    metaTitle,
+    metaDescription,
+    "imageUrl": ogImage.asset->url,
+    noIndex
+  }} `,
     { industries: titles },
   );
 }
 
+export const leadershipGridQuery = `
+  *[_type == "leadership"]
+    | order(order asc)[0...2] {
+      _id,
+      name,
+      "slug": slug.current,
+      position,
+      "imageUrl": profileImage.asset->url,
+      education
+    }
+`;
+
 export const leadershipQuery = `
-  *[_type == "leadership"] | order(publishedAt asc) {
-    _id,
-    name,
-    "slug": slug.current,
-    position,
-    "imageUrl": profileImage.asset->url,
-    education
-  }
+  *[_type == "leadership"]
+  | order(order asc) {
+      _id,
+      name,
+      "slug": slug.current,
+      position,
+      "imageUrl": profileImage.asset->url,
+      education
+    }
 `;
 
 export const leadershipBySlugQuery = `

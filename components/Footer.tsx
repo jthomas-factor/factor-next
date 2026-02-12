@@ -1,9 +1,11 @@
-'use client'
+'use client';
 import { RiMapPin2Fill, RiPhoneFill } from 'react-icons/ri';
 import Socials from './Socials';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/lib/variants';
 import Logo from './Logo';
+import Link from 'next/link';
+import { footerLinks } from '@/lib/constant';
 
 const Footer = () => {
   return (
@@ -15,31 +17,28 @@ const Footer = () => {
       className="mt-16 xl:mt-32 bg-white"
     >
       <div className="container mx-auto">
-        <div className="py-16 xl:py-[100px] flex flex-col xl:flex-row gap-[60px] xl:gap-[30px]">
+        <div className="py-16 xl:py-[100px] flex flex-col xl:flex-row gap-[60px] xl:gap-[90px]">
           <div className="flex-1">
-            <Logo />
-            <p className="text-primary pr-8 py-2 mt-4">
-              FACTOR delivers essential expertise to our clients enabling them
-              to better manage the risks inherent in their operations. We apply
-              advanced methodologies, technology, and data analysis to support
-              risk-based decision-making and create a competitive advantage for
-              our clients.
-            </p>
-            <p className="text-primary pr-8 py-2">
-              FACTOR has been solving challenging risk management problems in
-              the transportation, energy, chemical, insurance, and public
-              sectors since 1997.
-            </p>
+            <div className="w-[25%] mb-10">
+              <Logo />
+            </div>
+            <ul className="grid grid-cols-3 gap-y-2 gap-x-4">
+              {footerLinks.map((link, index) => (
+                <li key={index} className="text-primary">
+                  <Link href={link.path}>{link.name}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="flex-1 text-primary">
-            <p className="h4 mb-10">Contact</p>
+            <p className="h4 mb-4">Contact</p>
             <ul className="flex flex-col gap-2">
               <li className="flex items-center gap-4">
                 <RiMapPin2Fill className="text-accent text-xl" />
-                <p>
-                  Corporate Headquarters 209 10th Ave. S. Suite 560 Nashville,
-                  TN 37203
-                </p>
+                <div>
+                  <p>Corporate Headquarters</p>
+                  <p>10th Ave. S. Suite 560 Nashville, TN 37203</p>
+                </div>
               </li>
               <li className="flex items-center gap-4">
                 <RiPhoneFill className="text-accent text-xl" />

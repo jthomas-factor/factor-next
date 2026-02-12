@@ -33,6 +33,8 @@ const ListLeadershipTemplate = ({ posts }: Props) => {
                   width={1200}
                   height={700}
                   className="w-full h-full object-cover rounded"
+                  priority
+                  fetchPriority="high"
                 />
               </div>
 

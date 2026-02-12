@@ -6,6 +6,12 @@ export const leadershipType = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
       name: 'name',
       title: 'Name',
       type: 'string',

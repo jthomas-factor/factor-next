@@ -30,6 +30,8 @@ const PostListTemplate = ({ title, posts }: Props) => {
                 width={1200}
                 height={700}
                 className="w-full h-auto object-cover rounded"
+                priority
+                fetchPriority="high"
               />
             </div>
 

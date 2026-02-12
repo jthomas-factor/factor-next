@@ -119,7 +119,7 @@ const Services = () => {
                     key={item.name}
                     aria-label={`${item.title} Services`}
                     value={item.name}
-                    className="cursor-pointer w-full rounded-none h-[100px] flex items-center relative shadow p-0 outline-none"
+                    className="cursor-pointer w-full rounded-none h-[100px] flex items-center relative shadow p-0 outline-none transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                   >
                     <div
                       className={`w-[100px] h-[100px] flex items-center justify-center absolute left-0 ${

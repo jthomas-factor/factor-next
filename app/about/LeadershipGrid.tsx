@@ -22,14 +22,14 @@ const LeadershipGrid = ({ posts }: Props) => {
           initial="hidden"
           viewport={{ once: false, amount: 0.2 }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
+          <div className="hidden lg:grid grid-cols-2">
             {posts.map((post, index) => (
               <Link
                 key={index}
                 href={`about/leadership/${post.slug}`}
                 aria-label="Read more about this project"
               >
-                <div className="relative w-full h-[492px] overflow-hidden group flex justify-center">
+                <div className="relative w-full h-[600px] overflow-hidden group flex justify-center">
                   <Image
                     src={post.imageUrl}
                     fill

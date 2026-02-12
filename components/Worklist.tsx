@@ -42,7 +42,7 @@ const Worklist = ({ posts }: Props) => {
           initial="hidden"
           viewport={{ once: false, amount: 0.2 }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(500px,1fr))]">
             {posts.map((post, index) => (
               <Link
                 key={index}
