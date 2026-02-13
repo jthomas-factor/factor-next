@@ -19,7 +19,7 @@ const Hero = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-center h-full bg-[linear-gradient(to_right,#3a5062,transparent)]">
+      <div className="relative z-10 flex items-center justify-center h-full bg-[linear-gradient(to_right,#000,transparent)]">
         <div className="text-white flex flex-col container mx-auto">
           <div className="z-20 text-white text-center xl:text-left mx-auto xl:mx-0 flex flex-col items-center xl:items-start max-w-[608px]">
             <motion.h1
