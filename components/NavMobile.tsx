@@ -42,7 +42,7 @@ const NavMobile = () => {
                   key={index}
                   className="text-primary uppercase font-primary font-medium tracking-[1.2px]"
                 >
-                  <Link href={link.path}>{link.name}</Link>
+                  <Link onClick={() => setIsOpen(false)} href={link.path}>{link.name}</Link>
                 </li>
               );
             })}

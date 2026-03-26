@@ -1,7 +1,7 @@
 export const links = [
   {
     name: 'home',
-    path: '',
+    path: '/',
   },
   {
     name: 'about',
@@ -32,27 +32,27 @@ export const links = [
 export const footerLinks = [
   {
     name: 'Home',
-    path: '',
+    path: '/',
   },
   {
     name: 'About',
-    path: 'about',
+    path: '/about',
   },
   {
     name: 'Services',
-    path: 'services',
+    path: '/services',
   },
   {
     name: 'Industries',
-    path: 'industries',
+    path: '/industries',
   },
   {
     name: 'Projects',
-    path: 'projects',
+    path: '/projects',
   },
   {
     name: 'Contract Vehicles',
-    path: 'contract-vehicles',
+    path: '/contract-vehicles',
   },
   {
     name: 'Leadership',
