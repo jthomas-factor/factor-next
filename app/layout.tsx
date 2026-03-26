@@ -4,6 +4,8 @@ import './globals.css';
 import Topbar from '@/components/Topbar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { draftMode } from 'next/headers';
+import VisualEditingWrapper from '@/components/VisualEditingWrapper';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -21,11 +23,13 @@ export const metadata: Metadata = {
     'Solving challenging risk management problems in the transportation, energy, chemical, insurance, and public sectors since 1997.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { isEnabled } = await draftMode();
+
   return (
     <html lang="en">
       <body
@@ -34,6 +38,7 @@ export default function RootLayout({
         <Topbar />
         <Header />
         {children}
+        {isEnabled && <VisualEditingWrapper />}
         <Footer />
       </body>
     </html>

@@ -8,6 +8,7 @@ import { client } from '@/sanity/lib/client';
 import { Post } from '@/lib/types';
 import DetailPageTemplate from '@/components/DetailPageTemplate';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -15,8 +16,13 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const { isEnabled: isDraftMode } = await draftMode();
 
-  const post = await client.fetch<Post>(serviceBySlugQuery, {
+  const post = await client.withConfig({
+    perspective: isDraftMode ? 'drafts' : 'published',
+    useCdn: !isDraftMode,
+    token: isDraftMode ? process.env.SANITY_API_READ_TOKEN : undefined,
+  }).fetch<Post>(serviceBySlugQuery, {
     slug,
   });
 
