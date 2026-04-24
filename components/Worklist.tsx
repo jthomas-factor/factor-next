@@ -26,10 +26,10 @@ const Worklist = ({ posts }: Props) => {
             className="text-center max-w-[540px] mx-auto xl:mb-20"
           >
             <PreTitle text="Our work" center />
-            <h2 className="h2 mb-3">Project Highlights</h2>
+            <h3 className="mb-3">Project Highlights</h3>
             <p className="mb-11 max-w-[500px] mx-auto">
               FACTOR is proud to support a wide range of federal, defense, and
-              infrastructure-focused agencies. Our trusted partnership span
+              infrastructure-focused agencies. Our trusted partnerships span
               civil and military clients, helping them tackle complex problems
               in geospatial science, emergency planning, and mission-critical
               data systems.
@@ -60,9 +60,9 @@ const Worklist = ({ posts }: Props) => {
 
                   <div className="w-[90%] h-[84px] bg-white absolute bottom-4 flex justify-between items-center text-primary md:translate-y-[108px] md:group-hover:translate-y-0 transition-all duration-500">
                     <div className="pl-8">
-                      <h3 className="text-primary font-primary font-semibold tracking-[1px]">
+                      <h4 className="text-primary font-primary font-semibold tracking-[1px]">
                         {post.title}
-                      </h3>
+                      </h4>
                       <div className="flex items-center gap-2">
                         <RiCheckboxCircleFill className="text-accent text-xl" />
                         <p className="px-2">{post.subtitle}</p>

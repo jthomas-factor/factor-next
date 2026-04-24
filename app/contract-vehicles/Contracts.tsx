@@ -46,7 +46,7 @@ const serviceData = [
     ],
   },
   {
-    name: 'MAS',
+    name: 'MAS Info',
     icon: <PiScrollFill className="!w-10 !h-10" />,
     title: 'MAS CONTRACT INFORMATION',
     link: (
@@ -185,7 +185,7 @@ const Contracts = () => {
                       {item.serviceList.map((service, index) => {
                         return (
                           <li key={index} className="flex items-center gap-4">
-                            <div className="w-2 h-2 bg-accent rotate-20"></div>
+                            <div className="p-1 w-2 h-2 bg-accent rotate-20"></div>
                             <div className="capitalize font-medium text-primary">
                               {service}
                             </div>

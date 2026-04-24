@@ -32,7 +32,10 @@ const Contact = () => {
                     </h5>
                     <p className="mb-4">Stop by our office.</p>
                     <p className="font-semibold text-primary">
-                      Corporate Headquarters 209 10th Ave. S. Suite 560
+                      Corporate Headquarters
+                      <br />
+                      209 10th Ave. S., Suite 560
+                      <br />
                       Nashville, TN 37203
                     </p>
                   </div>

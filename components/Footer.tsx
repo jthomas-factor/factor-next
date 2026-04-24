@@ -22,13 +22,19 @@ const Footer = () => {
             <div className="w-[25%] mb-10">
               <Logo />
             </div>
-            <ul className="grid grid-cols-3 gap-y-2 gap-x-4">
-              {footerLinks.map((link, index) => (
-                <li key={index} className="text-primary">
-                  <Link href={link.path}>{link.name}</Link>
-                </li>
+            <div className="flex flex-row gap-12">
+              {Array.from({ length: Math.ceil(footerLinks.length / 3) }, (_, colIndex) =>
+                footerLinks.slice(colIndex * 3, colIndex * 3 + 3),
+              ).map((column, colIndex) => (
+                <ul key={colIndex} className="flex flex-col">
+                  {column.map((link, index) => (
+                    <li key={index} className="text-primary p-4">
+                      <Link href={link.path}>{link.name}</Link>
+                    </li>
+                  ))}
+                </ul>
               ))}
-            </ul>
+            </div>
           </div>
           <div className="flex-1 text-primary">
             <p className="h4 mb-4">Contact</p>
@@ -37,7 +43,8 @@ const Footer = () => {
                 <RiMapPin2Fill className="text-accent text-xl" />
                 <div>
                   <p>Corporate Headquarters</p>
-                  <p>10th Ave. S. Suite 560 Nashville, TN 37203</p>
+                  <p>10th Ave. S., Suite 560</p>
+                  <p>Nashville, TN 37203</p>
                 </div>
               </li>
               <li className="flex items-center gap-4">
