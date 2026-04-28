@@ -7,6 +7,7 @@ import { industryType } from './industryType';
 import { serviceType } from './serviceType';
 import { leadershipType } from './leadershipType';
 import { seo } from './seoType';
+import imageWithText from './imageWithText';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -17,5 +18,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     serviceType,
     leadershipType,
     seo,
+    imageWithText,
   ],
 };
