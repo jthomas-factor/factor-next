@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import PreTitle from './PreTitle';
 
 const Clients = () => {
   const slides = [
@@ -43,24 +44,23 @@ const Clients = () => {
   ];
 
   return (
-    <div className="bg-white overflow-hidden py-8">
-      <div className="flex animate-marquee whitespace-nowrap">
-        {slides.map((src, i) => (
-          <div
-            key={i}
-            className="relative w-[150px] h-[120px] mx-6 flex-shrink-0 flex items-center justify-center"
-          >
-            <Image
-              src={src}
-              alt="client logo"
-              fill
-              className="object-contain"
-              sizes="150px"
-            />
-          </div>
-        ))}
+    <>
+      <div className="flex items-center justify-center w-full mb-8 mt-24">
+        <PreTitle text="Selected Clients" />
       </div>
-    </div>
+      <div className="bg-white overflow-hidden py-8">
+        <div className="flex animate-marquee whitespace-nowrap">
+          {[...slides, ...slides].map((src, i) => (
+            <div
+              key={i}
+              className="relative w-[150px] h-[120px] mx-6 flex-shrink-0 flex items-center justify-center"
+            >
+              <Image src={src} alt="client logo" fill className="object-contain" sizes="150px" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 

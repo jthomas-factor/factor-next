@@ -6,10 +6,19 @@ import { fadeIn } from '@/lib/variants';
 import { motion } from 'framer-motion';
 import { PortableText } from '@portabletext/react';
 import PreTitle from '@/components/PreTitle';
+import imageUrlBuilder from '@sanity/image-url';
+import { client } from '@/sanity/lib/client';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 type Props = {
   post: Post;
 };
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source: SanityImageSource) {
+  return builder.image(source);
+}
 
 const PostTemplate = ({ post }: Props) => {
   return (
@@ -63,7 +72,38 @@ const PostTemplate = ({ post }: Props) => {
           viewport={{ once: true, amount: 0.2 }}
         >
           <div className="mt-4 mb-8 w-full flex flex-col gap-4">
-            <PortableText value={post.body} />
+            <PortableText
+              value={post.body}
+              components={{
+                types: {
+                  image: ({ value }) => (
+                    <div className="my-6 w-full">
+                      <Image
+                        src={urlFor(value).url()}
+                        alt={value.alt || ''}
+                        width={1200}
+                        height={700}
+                        className="w-full h-auto object-cover rounded"
+                      />
+                    </div>
+                  ),
+                  imageWithText: ({ value }) => (
+                    <div className={`flex gap-6 items-center my-6 ${value.imagePosition === 'right' ? 'flex-row-reverse' : 'flex-row'}`}>
+                      <div className="w-1/3 shrink-0">
+                        <Image
+                          src={urlFor(value.image).url()}
+                          alt={value.text || ''}
+                          width={400}
+                          height={300}
+                          className="w-full h-auto object-cover rounded"
+                        />
+                      </div>
+                      <p className="text-base leading-relaxed">{value.text}</p>
+                    </div>
+                  ),
+                },
+              }}
+            />
           </div>
         </motion.div>
 

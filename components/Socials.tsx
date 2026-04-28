@@ -10,7 +10,7 @@ const socials = [
   {
     icon: <RiLinkedinFill />,
     path: 'https://www.linkedin.com/company/factorinc/',
-    label: 'LinkedIn',
+    label: 'Follow us on LinkedIn',
   },
 ];
 
@@ -19,15 +19,14 @@ const Socials = ({ containerStyles, iconStyles }: Props) => {
     <div className={`${containerStyles}`}>
       {socials.map((item, index) => {
         return (
-          <Link href={item.path} key={index} className={iconStyles}>
-            {item.icon}
-            <span className="sr-only">
-              Visit
+          <div key={index} className="flex flex-row gap-3 items-center">
+            <Link href={item.path} className={iconStyles}>
+              {item.icon}
+            </Link>
+            <span className="font-bold text-white">
               {item.label}
-              {' '}
-              page
             </span>
-          </Link>
+          </div>
         );
       })}
     </div>

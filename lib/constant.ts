@@ -39,6 +39,10 @@ export const footerLinks = [
     path: '/about',
   },
   {
+    name: 'Leadership',
+    path: '/about/leadership',
+  },
+  {
     name: 'Services',
     path: '/services',
   },
@@ -53,10 +57,6 @@ export const footerLinks = [
   {
     name: 'Contract Vehicles',
     path: '/contract-vehicles',
-  },
-  {
-    name: 'Leadership',
-    path: '/about/leadership',
   },
   {
     name: 'Contact',
